@@ -36,7 +36,12 @@ import (
 )
 
 func main() {
-    ping := pingpong.NewPingPong([]string{"a", "b", "c"})
+    ping, err := pingpong.NewPingPong([]string{"a", "b", "c"})
+    
+    if err != nil {
+		fmt.Println(err)
+		return
+	}
 
     fmt.Println(ping.Next()) // Output: a
     fmt.Println(ping.Next()) // Output: b
